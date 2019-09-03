@@ -1,0 +1,3 @@
+This repo is me playing around with Google's Cloud Shell [tutorial feature](https://cloud.google.com/shell/docs/tutorials). I'll probably delete it after I figure out the basics, so please don't rely on this for anything.
+
+[![Open in Cloud Shell](//gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/KevinWorkman/gcloud-tutorials.git&cloudshell_working_dir=hello-world&cloudshell_tutorial=tutorial.md)
