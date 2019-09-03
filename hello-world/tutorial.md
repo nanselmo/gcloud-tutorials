@@ -1,11 +1,10 @@
 # Hello World Tutorial
 
+This tutorial introduces Google's Cloud Shell and editor. We'll use Maven to compile and run a hello world program.
+
 ## Directory Structure
 
-Look through the directory using the
-
-<walkthrough-spotlight-pointer spotlightId="devshell-web-editor-button" text="Explorer">
-</walkthrough-spotlight-pointer>
+Look through the directory using the <walkthrough-spotlight-pointer spotlightId="devshell-web-editor-button">explorer</walkthrough-spotlight-pointer>.
 
 Try navigating to the various files in this project.
 
