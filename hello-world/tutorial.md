@@ -21,7 +21,7 @@ Notice the `exec.mainClass` property, which specifies the class to run.
 
 We'll use the Cloud Shell console to run our code. Click the `walkthrough cloud-shell-icon` button to open the console, and then type this command:
 
-```
+```bash
 mvn clean compile exec:java
 ```
 
