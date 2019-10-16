@@ -11,4 +11,14 @@
     <exec.mainClass>io.happycoding.gcloud.HelloWorld</exec.mainClass>
     <exec.cleanupDaemonThreads>false</exec.cleanupDaemonThreads>
   </properties>
+
+  <dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+
 </project>
