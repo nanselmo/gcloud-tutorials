@@ -40,11 +40,9 @@ This command tells Maven to run an App Engine development server, which is usefu
 
 The first time you run this command, Maven will automatically download all of the libraries and files required to run a server, so it might take a few minutes. When the command completes, you'll see this in the console:
 
-```
-INFO: Dev App Server is now running
-```
+**INFO: Dev App Server is now running**
 
-Now that you have a server running, your browser can send requests to it. Click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and then select `Preview on port 8080` to send a request for the `index.html` file.
+Now that you have a server running, your browser can send requests to it. Click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and then select **Preview on port 8080** to open a tab that displays the `index.html` file.
 
 Your new tab should show a barebones website. You'll start customizing this in the next step!
 
@@ -71,17 +69,93 @@ Click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and
 If you're new to HTML, that's okay! Here are a few place to learn more:
 
 - [W3Schools](https://www.w3schools.com/html/default.asp)
-- [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
 - [Google's HTML Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
 Don't forget that Google is your friend! For example, try searching "html image tag" for a ton of useful results about adding images to HTML.
 
-Try changing the `index.html` file to create an "about me" webpage for yourself.
-
 ### CSS
+
+You can use Cascading Style Sheets, or CSS, to style your HTML with formatting and colors.
+
+Learning CSS is **optional** for the rest of the content. But if you're curious, here are a few places to learn more:
+
+- [W3Schools](https://www.w3schools.com/css/)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+If you're interested in CSS, feel free to explore it further. But make sure you're spending most of your time on the core topics each week!
+
+### Practice
+
+Modify the `index.html` file to create a webpage containing five facts about yourself. Then deploy it to a dev server to see your changes.
 
 ## JavaScript
 
-### DOM Manipulation
+You can use JavaScript to make your page interactive.
 
+To write JavaScript, start by creating a file named `script.js` next to your `index.html` file.
 
+Add this function to your `script.js` file:
+
+```javascript
+function showHello() {
+  alert('Hello!');
+}
+```
+
+This function calls the [`alert()`](https://www.w3schools.com/jsref/met_win_alert.asp) function, which shows a dialog.
+
+Then add this line to the `<head>` section of your `index.html` file:
+
+```html
+<script src="script.js"></script>
+```
+
+This line tells the browser to load the `script.js` file when it loads the page, which means we can use the `showHello()` function in our HTML.
+
+Add this line to the `<body>` section of your `index.html` file:
+
+```html
+<button onclick="showHello()">Click me!</button>
+```
+
+Now run your development server and click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and then select **Preview on port 8080** to view your changes.
+
+Your page should now contain a button that shows a dialog when you click it!
+
+You can learn more about JavaScript at [W3Schools](https://www.w3schools.com/js/default.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript), or by googling "JavaScript tutorials".
+
+## DOM Manipulation
+
+You can also use JavaScript to change the HTML in the page, also called the document object model, or the DOM.
+
+Add this to the `<body>` section of your `index.html` page:
+
+```html
+<div id="output"></div>
+```
+
+This line creates an empty `<div>` element with an `id` of `output`. This tag does not have any content, at least not yet!
+
+Now change your `showHello()` function to this:
+
+```javascript
+function showHello() {
+  const outputElement = document.getElementById('output');
+  outputElement.innerText = 'Hello!';
+}
+```
+
+This code finds the element with an `id` of `output` and then sets the `innerText` of that element.
+
+Run your development server again and refresh your web preview. Now when you click the button, the message should show in the page instead of in a dialog.
+
+You can learn more about DOM manipulation on [W3Schools](https://www.w3schools.com/js/js_htmldom.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), or by googling "JavaScript DOM manipulation".
+
+## Your Turn
+
+Congratulations, you've completed this walkthrough! You should now have some familiarity with HTML and JavaScript.
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+To practice what you just learned, pick a project from the `week_1` directory. Talk with your group to decide who will do what!
