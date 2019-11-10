@@ -152,6 +152,10 @@ Run your development server again and refresh your web preview. Now when you cli
 
 You can learn more about DOM manipulation on [W3Schools](https://www.w3schools.com/js/js_htmldom.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), or by googling "JavaScript DOM manipulation".
 
+## Live Server
+
+TODO
+
 ## Your Turn
 
 Congratulations, you've completed this walkthrough! You should now have some familiarity with HTML and JavaScript.
@@ -159,3 +163,8 @@ Congratulations, you've completed this walkthrough! You should now have some fam
 <walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
 
 To practice what you just learned, pick a project from the `week_1` directory. Talk with your group to decide who will do what!
+
+- Project 1: About Me
+- Project 2: Organization Homepage
+- Project 3: Portfolio
+- Project 4: Current time?
