@@ -95,6 +95,8 @@ You can use JavaScript to make your page interactive.
 
 To write JavaScript, start by creating a file named `script.js` next to your `index.html` file.
 
+TODO: start with console.log
+
 Add this function to your `script.js` file:
 
 ```javascript
