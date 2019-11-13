@@ -2,10 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Google Cloud Server Hello World</title>
+    <title>Google Cloud Hello World</title>
+    <script>
+      fetch('/hello')
+      .then((content) => { return content.json(); } )
+      .then( (serverStats) => {
+         document.getElementById('request-count').innerText = 'Request count : ' + serverStats.requestCount;
+         document.getElementById('server-start').innerText = 'Server start : ' + serverStats.startDate;
+      }); 
+    </script>
   </head>
   <body>
-    <h1>Google Cloud ServerHello World</h1>
-    <p>Click <a href="/hello">here</a> to request dynamic content from the server.</p>
+    <h1>Google Cloud Hello World</h1>
+    <div id="request-count"></div>
+    <div id="server-start"></div>
+
+    <form action="/hello" method="POST">
+      <textarea name="message"></textarea>
+      <br/>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
