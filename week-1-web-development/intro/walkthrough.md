@@ -18,9 +18,9 @@ Click the **Start** button to begin!
 
 Look through the directory structure using the file explorer. The project contains three files:
 
-- <walkthrough-editor-open-file filePath="gcloud-tutorials/web-development/pom.xml">pom.xml</walkthrough-editor-open-file> is a Maven configuration file.
-- <walkthrough-editor-open-file filePath="gcloud-tutorials/web-development/src/main/webapp/index.html">src/main/webapp/index.html</walkthrough-editor-open-file> is an HTML file that will be rendered by the browser.
-- <walkthrough-editor-open-file filePath="gcloud-tutorials/web-development/src/main/webapp/WEB-INF/appengine-web.xml">src/main/webapp/WEB-INF/appengine-web.xml</walkthrough-editor-open-file> is App Engine's configuration file.
+- <walkthrough-editor-open-file filePath="gcloud-tutorials/week-1/intro/pom.xml">pom.xml</walkthrough-editor-open-file> is a Maven configuration file.
+- <walkthrough-editor-open-file filePath="gcloud-tutorials/week-1/intro/src/main/webapp/index.html">src/main/webapp/index.html</walkthrough-editor-open-file> is an HTML file that will be rendered by the browser.
+- <walkthrough-editor-open-file filePath="gcloud-tutorials/week-1/intro/src/main/webapp/WEB-INF/appengine-web.xml">src/main/webapp/WEB-INF/appengine-web.xml</walkthrough-editor-open-file> is App Engine's configuration file.
 
 Try navigating to the various files in this project and viewing their contents in the editor.
 
@@ -48,7 +48,7 @@ Your new tab should show a barebones website. You'll start customizing this in t
 
 ## index.html
 
-Open the <walkthrough-editor-open-file filePath="gcloud-tutorials/web-development/src/main/webapp/index.html">index.html</walkthrough-editor-open-file> file.
+Open the <walkthrough-editor-open-file filePath="gcloud-tutorials/week-1/intro/src/main/webapp/index.html">index.html</walkthrough-editor-open-file> file.
 
 This file contains **HTML tags** that tell a browser how to render text. For example, the `<h1>` tag renders as a heading, and the `<p>` tag renders as a paragraph.
 

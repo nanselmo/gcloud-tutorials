@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.happycoding</groupId>
-  <artifactId>gcloud-tutorials-web-development</artifactId>
+  <artifactId>gcloud-tutorials-week-1-intro</artifactId>
   <version>1</version>
   <packaging>war</packaging>
 
