@@ -1,13 +1,13 @@
-# Portfolio Page
+# Image Gallery
 
 ## Getting Started
 
-This project uses HTML to create a portfolio website, and uses App Engine to deploy that website to a public URL.
+This project uses HTML to create an image gallery, and uses App Engine to deploy that website to a public URL.
 
 You can return to this walkthrough anytime by running this command:
 
 ```bash
-teachme portfolio-walkthrough.md
+teachme image-gallery-walkthrough.md
 ```
 
 Click the **Start** button to begin!
@@ -42,13 +42,13 @@ The first time you run this command, Maven will automatically download all of th
 
 Now that you have a server running, your browser can send requests to it. Click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and then select **Preview on port 8080** to open a tab that displays the `index.html` file.
 
-Your new tab should show a barebones website. You'll start customizing this in the next step!
+Your new tab should show a barebones website with a single image. You'll start customizing this in the next step!
 
 ## index.html
 
 Open the `src/main/webapp/index.html` file in the Google Cloud Shell editor.
 
-This file contains **HTML tags** that tell a browser how to render text. For example, the `<h1>` tag renders as a heading, and the `<p>` tag renders as a paragraph.
+This file contains **HTML tags** that tell a browser how to render text. For example, the `<h1>` tag renders as a heading, and the `<img>` tag renders an image.
 
 Modify the text in this file and save your changes. Change the heading to include your name.
 
@@ -70,19 +70,25 @@ If you're new to HTML, that's okay! Here are a few place to learn more:
 - [MDN](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
 - [Google's HTML Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
-Don't forget that Google is your friend! For example, try searching "html list tag" for a ton of useful results about adding lists to HTML.
+Don't forget that Google is your friend! For example, try searching "html image tag" for a ton of useful results about adding images to HTML.
 
-Add some content to your portfolio page:
+Add some content to your image gallery:
 
-- Add a couple paragraphs explaining your background and what makes you you.
-- Add a list of projects you've worked on.
+- Add more images!
+- Add a couple paragraphs explaining what you enjoy photographing.
 - Add a link to your LinkedIn and GitHub profiles.
 
-This is **your** portfolio page, so make it your own. Use your creativity to guide your learning!
+This is **your** image gallery, so make it your own. Create a gallery of your favorite places, or selfies, or pictures of your pets.
+
+### Uploading Images
+
+To add images to your project, right-click the `src/main/webapp/images` directory and then select `Upload Files...` to select an image from your computer.
+
+To reference an image in your `images` directory, use a path that starts with a `/` forward slash, like `/images/cat.jpg`. This path will work on a development server and when you deploy to a live URL.
 
 ### CSS
 
-You can use Cascading Style Sheets, or CSS, to style your HTML with formatting and colors.
+You can use Cascading Style Sheets, or CSS, to style your HTML with formatting and colors. For example, you can use CSS to tell the browser what size to display your images.
 
 Learning CSS is **optional** for CodeU. You can skip this step if you want. But if you're curious, here are a few places to learn more:
 
