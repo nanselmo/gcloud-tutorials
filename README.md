@@ -11,3 +11,5 @@ After you meet your team on chat, decide who will setup your shared GitHub repo.
 That person should click here:
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/KevinWorkman/gcloud-tutorials.git&cloudshell_tutorial=week-0-setup/github-setup-walkthrough.md)
+
+Then follow the on-screen instructions to setup your team's repo.
