@@ -9,7 +9,7 @@ If you aren't an HTML expert, that's okay! You don't need anything to start this
 You can return to this walkthrough anytime by running this command:
 
 ```bash
-teachme walkthrough.md
+teachme web-development-walkthrough.md
 ```
 
 Click the **Start** button to begin!
@@ -95,17 +95,16 @@ You can use JavaScript to make your page interactive.
 
 To write JavaScript, start by creating a file named `script.js` next to your `index.html` file.
 
-TODO: start with console.log
-
 Add this function to your `script.js` file:
 
 ```javascript
 function showHello() {
+  console.log('Hello!')
   alert('Hello!');
 }
 ```
 
-This function calls the [`alert()`](https://www.w3schools.com/jsref/met_win_alert.asp) function, which shows a dialog.
+This function calls the `console.log()` function, which shows a message in the JavaScript console, and the [`alert()`](https://www.w3schools.com/jsref/met_win_alert.asp) function, which shows a dialog.
 
 Then add this line to the `<head>` section of your `index.html` file:
 
@@ -124,6 +123,10 @@ Add this line to the `<body>` section of your `index.html` file:
 Now run your development server and click the <walkthrough-web-preview-icon></walkthrough-web-preview-icon> icon and then select **Preview on port 8080** to view your changes.
 
 Your page should now contain a button that shows a dialog when you click it!
+
+### JavaScript Console
+
+Your browser's JavaScript console will show anything you print out using the `console.log()` function, as well as any errors. **This should be the first place you look when you have a problem.** It's a good idea to always have your JavaScript console open, so you see errors right away.
 
 You can learn more about JavaScript at [W3Schools](https://www.w3schools.com/js/default.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript), or by googling "JavaScript tutorials".
 
