@@ -33,7 +33,7 @@ git remote remove origin
 On [GitHub](https://github.com/), click on the `+` in the top-right and click on `new repository`. This will take you to a page to create your repo on GitHub. 
 
 1. Enter a repository name. Something like `team-XX-codeu` is a fine name.
-2. Set your repo is to public. This allows anyone to see your code.
+2. Set your repo to public. This allows anyone to see your code.
 3. Click the green `create repository` button!
 
 At this point you should have an empty repo.
@@ -75,14 +75,76 @@ When your team writes code, you're going to use **pull requests** to do code rev
 1. Go to your GitHub repo page.
 2. Click the `Settings` tab.
 3. Select `Branches`.
-4. In the `Branch protection rules` section, click the `Add rule` button, and then type `master` into the `Branch name pattern` text box.
+4. Click the `Add rule` button.
+4. Type `master` into the `Branch name pattern` text box.
 5. Select `Require pull request reviews before merging` and `Include administrators`. 
-6. Click `Save changes`.
+6. Click `Create`.
+7. Click `Save changes`.
 
 ## Modify README
 
 To test that everything is connected, and to make it easier for your teammates to clone your repo, modify the `README.md` file.
 
+The `README.md` file contains the content that shows in your repo's GitHub page. Change it to mention your team's name, and change the Cloud Shell link to the next step.
 
+Change the `This repo contains the projects you'll work on throughout CodeU.` line to your team's name, or your team number if you don't have a name yet.
 
+Find this part of the `README.md` file:
 
+```
+cloudshell_git_repo=https://github.com/KevinWorkman/gcloud-tutorials.git
+```
+
+Change it to point to your repo instead.
+
+Then find this part of the `README.md` file:
+
+```
+cloudshell_tutorial=week-0-setup/github-setup-walkthrough.md
+```
+
+You just completed that setup, so change it to point to the next step everyone should follow:
+
+```
+cloudshell_tutorial=week-0-setup/intro-walkthrough.md
+```
+
+The `README.md` file now belongs to your team. You should feel free to customize it and make it your own!
+
+## Push Your Changes
+
+To save your changes to your team's repo, first create a branch:
+
+```bash
+git checkout -b YOUR_BRANCH_NAME
+```
+
+(You can use anything you want for `YOUR_BRANCH_NAME`. I normally use something like `KevinDevelopment`.)
+
+Add the `README.md` file to the set of changes you want to upload:
+
+```bash
+git add README.md
+```
+
+Then create a commit which describes the changes you just made:
+
+```bash
+git commit -m "Update README.md file to point to team's repo and next setup step."
+```
+
+Finally, push all of your changes to the shared repo:
+
+```bash
+git push origin YOUR_BRANCH_NAME
+```
+
+Your changes are now stored in a branch on your team's repo. Follow the instructions for creating a pull request on the CodeU website to send your changes to your team for review.
+
+## Congratulations!
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+After you send your pull request, you're done with the GitHub repo setup!
+
+You can keep working from the `gcloud-tutorials` directory, or you can delete it and click the `Open in Google Cloud Shell` button from your team's repo to jump to the next step.
