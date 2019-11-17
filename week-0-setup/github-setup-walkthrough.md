@@ -5,7 +5,7 @@ Follow this walkthrough to setup your team's GitHub repo.
 You can return to this walkthrough anytime by running this command:
 
 ```bash
-teachme walkthrough.md
+teachme github-setup-walkthrough.md
 ```
 
 ## Getting Started
@@ -15,16 +15,6 @@ teachme walkthrough.md
 Every member of your team needs a GitHub account, so make sure everyone registers.
 
 After everyone has a GitHub account, then **one** teammate should continue this setup. Talk with your team to decide who should own this.
-
-## Create a GitHub Repository
-
-On [GitHub](https://github.com/), click on the `+` in the top-right and click on `new repository`. This will take you to a page to create your repo on GitHub. 
-
-1. Enter a repository name. Something like `team-XX-codeu` is a fine name.
-2. Set your repo is to public. This allows anyone to see your code.
-3. Click the green `create repository` button!
-
-At this point you should have an empty repo.
 
 ## Unlink Google's Repo
 
@@ -38,9 +28,21 @@ To unlink this directory from Google's repo, execute this command:
 git remote remove origin
 ```
 
+## Create a GitHub Repository
+
+On [GitHub](https://github.com/), click on the `+` in the top-right and click on `new repository`. This will take you to a page to create your repo on GitHub. 
+
+1. Enter a repository name. Something like `team-XX-codeu` is a fine name.
+2. Set your repo is to public. This allows anyone to see your code.
+3. Click the green `create repository` button!
+
+At this point you should have an empty repo.
+
+
+
 ## Link Your Repo
 
-Back in your GitHub repo, click the `Clone or download` button to find your repo's URL. It should end in `.git`, like `https://github.com/KevinWorkman/team-1-codeu.git`. Copy that URL.
+In your GitHub repo page, find your repo's URL. It should end in `.git`, like `https://github.com/KevinWorkman/team-00-codeu.git`. Copy that URL.
 
 To link this directory to your repo, execute this command:
 
