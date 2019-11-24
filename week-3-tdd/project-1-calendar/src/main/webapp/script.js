@@ -1,3 +1,6 @@
+/**
+ * Adds the input elements required to specify information about an event.
+ */
 function addEventInput() {
   const title = document.createElement('input');
   title.setAttribute('type', 'text');
@@ -30,6 +33,9 @@ function addEventInput() {
   eventsContainer.appendChild(eventContainer);
 }
 
+/**
+ * Adds the input elements required to specify information about a restriction.
+ */
 function addRestrictionInput() {
   const startTime = document.createElement('input');
   startTime.setAttribute('type', 'number');
@@ -50,7 +56,10 @@ function addRestrictionInput() {
   restrictionsContainer.appendChild(restrictionContainer);
 }
 
-function getMeetingTimes() {
+/**
+ * Gets the user's input, sends it to the server, and builds a UI from the results.
+ */
+function sendMeetingRequest() {
   const events = [];
   // TODO: consider cleaning this up, using a class on each div?
   const eventInputs = document.getElementById('events').getElementsByTagName('input');
@@ -92,29 +101,33 @@ function getMeetingTimes() {
   const json = JSON.stringify(meetingRequest);
   console.log('request: ' + json);
 
+  // send the input to the server
   fetch('/calendar', {method: 'POST', body: json})
-  .then((response) => { 
+  // convert the response from JSON to an array of TimeRanges
+  .then((response) => {
     console.log('Response: ' + response);
     return response.json();
   })
+  // populate the UI with the TimeRange array
   .then((timeRanges) => {
     const resultsContainer = document.getElementById('results');
     // clear out any old results
     resultsContainer.innerHTML = '';
     // add results to the page
     timeRanges.forEach((timeRange) => {
-        resultsContainer.innerHTML += '<li>' + timeRange.start + " - " + timeRange.end + '</li>';
+      resultsContainer.innerHTML += '<li>' + timeRange.start + " - " + timeRange.end + '</li>';
     });
   });
-
 }
 
+/** A collection of events. */
 class Calendar {
   constructor(events) {
     this.events = events;
   }
 }
 
+/** A calendar event, such as a meeting.  */
 class CalendarEvent {
   constructor(title, when, attendees) {
     this.title = title;
@@ -123,6 +136,9 @@ class CalendarEvent {
   }
 }
 
+/** 
+ * Request for possible meeting times.
+ */
 class MeetingRequest {
   constructor(calendar, restrictions, duration, attendees) {
     this.calendar = calendar;
@@ -132,6 +148,10 @@ class MeetingRequest {
   }
 }
 
+/**
+ * A time range with a start and end. Times should be in minutes,
+ * e.g. 12:00 is represented as 720.
+ */
 class TimeRange {
   constructor(start, end) {
     this.start = start;
@@ -139,6 +159,7 @@ class TimeRange {
   }
 }
 
+/** A person with a name. */
 class Person {
   constructor(name) {
     this.name = name;

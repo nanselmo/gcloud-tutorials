@@ -18,26 +18,21 @@ public class CalendarServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-
     Gson gson = new Gson();
 
-    MeetingRequest mr = gson.fromJson(request.getReader(), MeetingRequest.class);
+    // Convert the JSON to an instance of MeetingRequest.
+    MeetingRequest meetingRequest = gson.fromJson(request.getReader(), MeetingRequest.class);
+
+    // Find the possible meeting times.
     FindMeetingQuery findMeetingQuery = new SampleFindMeetingQuery();
     List<TimeRange> answer = new ArrayList<>();
     findMeetingQuery.query(mr.calendar, mr, answer);
 
-
+    // Convert the times to JSON
     String jsonResponse = gson.toJson(answer);
+
+    // Send the JSON back as the response
     response.setContentType("application.json;");
-
-    
     response.getWriter().println(jsonResponse);
-
-
-
-  //  FindMeetingQuery findMeetingQuery = new SampleMeetingQuery();
   }
-
-
 }
