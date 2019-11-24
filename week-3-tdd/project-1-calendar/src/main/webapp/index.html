@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meeting Scheduler</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Meeting Scheduler</h1>
+      <p>Enter your existing events, available times, attendees, and desired event length.
+          Then click submit to see a list of available times.</p>
+
+      <h2>Events</h2>
+      <p>What events are already scheduled?
+      <p>(Specify times in minutes, e.g. 12:00 = 720)</p>
+      <div id="events"></div>
+      <button onclick="addEventInput()">New event</button>
+
+      <h2>Available Times</h2>
+      <p>What times are acceptable for your meeting?</p>
+      <div id="restrictions"></div>
+      <button onclick="addRestrictionInput()">New restriction</button>
+
+      <h2>Attendees</h2>
+      <p>Who is attending your meeting?</p>
+      <input id="attendees" type="text" placeholder="Ada, Grace, Alan" />
+
+      <h2>Length</h2>
+      <p>How long is your meeting?</p>
+      <input id="duration" type="number" min="0" />
+
+      <br/>
+      <button id="submit" onclick="getMeetingTimes()">Submit</button>
+
+      <hr/>
+      <h2>Results</h2>
+      <ul id="results"></ul>
+    </div>
+  </body>
+</html>

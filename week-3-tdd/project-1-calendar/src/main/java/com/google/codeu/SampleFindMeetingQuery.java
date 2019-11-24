@@ -12,7 +12,7 @@ import java.util.Set;
  * This is one implementation of the FindMeetingQuery feature. This SHOULD NOT be given to students
  * before they have finished the assignment.
  */
-final class SampleFindMeetingQuery implements FindMeetingQuery {
+public class SampleFindMeetingQuery implements FindMeetingQuery {
   private static final class OrderByStart implements Comparator<TimeRange> {
     @Override
     public int compare(TimeRange a, TimeRange b) {
@@ -25,13 +25,13 @@ final class SampleFindMeetingQuery implements FindMeetingQuery {
 
     final Set<Person> attendees = new HashSet<>(Arrays.asList(request.attendees));
 
-    final Collection<Event> scratchEvents = new ArrayList<>();
-    final Collection<Event> conflicts = new ArrayList<>();
+    final Collection<CalendarEvent> scratchEvents = new ArrayList<>();
+    final Collection<CalendarEvent> conflicts = new ArrayList<>();
 
     // Get all the events that we will conflict with.
     for (final TimeRange option : request.restrictions) {
       calendar.getEventsBetween(option, scratchEvents);
-      for (final Event event : scratchEvents) {
+      for (final CalendarEvent event : scratchEvents) {
         if (intersects(attendees, event.attendees)) {
           conflicts.add(event);
         }
@@ -44,7 +44,7 @@ final class SampleFindMeetingQuery implements FindMeetingQuery {
 
     // The events are what change our options, so for each event, apply its limitations upon our
     // options.
-    for (final Event event : conflicts) {
+    for (final CalendarEvent event : conflicts) {
       for (final TimeRange option : scratchOptionsRead) {
         split(option, event.when, scratchOptionsWrite);
       }

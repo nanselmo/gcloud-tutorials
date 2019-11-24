@@ -29,10 +29,10 @@ public final class FindMeetingQueryTests {
 
   @Test
   public void optionsForNoAttendees() {
-    final Calendar calendar = calendar();
+    final Calendar calendar = new Calendar();
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees());
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees());
 
     query.query(calendar, request, options);
     Assert.assertEquals(1, options.size());
@@ -41,12 +41,12 @@ public final class FindMeetingQueryTests {
 
   @Test
   public void noOptionsForTooLongOfARequest() {
-    final Calendar calendar = calendar();
+    final Calendar calendar = new Calendar();
 
     // The duration should be longer than all the restrictions so that there will never be an option
     // available, regardless of the calendar in the calendar.
     final MeetingRequest request =
-        request(restrictions(restriction(0, 100)), duration(1000), attendees(personA));
+        request(calendar, restrictions(restriction(0, 100)), duration(1000), attendees(personA));
 
     query.query(calendar, request, options);
     Assert.assertEquals(0, options.size());
@@ -56,10 +56,10 @@ public final class FindMeetingQueryTests {
   public void eventSplitsRestriction() {
     // Add an event that will occur in the middle of the restricted time. We should see therefore
     // see two options, before and after our event.
-    final Calendar calendar = calendar(event("Event 1", 500, 600, personA));
+    final Calendar calendar = new Calendar(event("Event 1", 500, 600, personA));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personA));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personA));
 
     query.query(calendar, request, options);
 
@@ -74,10 +74,10 @@ public final class FindMeetingQueryTests {
     // Have each person have different events. We should see three options because each person has
     // split the restricted times.
     final Calendar calendar =
-        calendar(event("Event 1", 200, 400, personA), event("Event 2", 500, 700, personB));
+        new Calendar(event("Event 1", 200, 400, personA), event("Event 2", 500, 700, personB));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
 
     query.query(calendar, request, options);
 
@@ -92,10 +92,10 @@ public final class FindMeetingQueryTests {
   public void overlappingEvents() {
     // Have an event for each person, but have their events overlap. We should only see two options.
     final Calendar calendar =
-        calendar(event("Event 1", 200, 500, personA), event("Event 2", 400, 800, personB));
+        new Calendar(event("Event 1", 200, 500, personA), event("Event 2", 400, 800, personB));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
 
     query.query(calendar, request, options);
 
@@ -110,10 +110,10 @@ public final class FindMeetingQueryTests {
     // Have an event for each person, but have one person's event fully contain another's event. We
     // should see two options.
     final Calendar calendar =
-        calendar(event("Event 1", 200, 800, personA), event("Event 2", 400, 600, personB));
+        new Calendar(event("Event 1", 200, 800, personA), event("Event 2", 400, 600, personB));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personA, personB));
 
     query.query(calendar, request, options);
 
@@ -127,10 +127,10 @@ public final class FindMeetingQueryTests {
   public void doubleBookedPeople() {
     // Have one person, but have them registered to attend two events at the same time.
     final Calendar calendar =
-        calendar(event("Event 1", 200, 600, personA), event("Event 2", 400, 800, personA));
+        new Calendar(event("Event 1", 200, 600, personA), event("Event 2", 400, 800, personA));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personA));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personA));
 
     query.query(calendar, request, options);
 
@@ -144,10 +144,10 @@ public final class FindMeetingQueryTests {
   public void ignoresPeopleNotAttending() {
     // Add an event, but make the only attendee someone different from the person looking to book
     // a meeting. This event should not affect the booking.
-    final Calendar calendar = calendar(event("Event 1", 500, 600, personA));
+    final Calendar calendar = new Calendar(event("Event 1", 500, 600, personA));
 
     final MeetingRequest request =
-        request(restrictions(restriction(0, 1000)), duration(100), attendees(personB));
+        request(calendar, restrictions(restriction(0, 1000)), duration(100), attendees(personB));
 
     query.query(calendar, request, options);
     Assert.assertEquals(option(0, 1000), options.get(0));
@@ -155,10 +155,11 @@ public final class FindMeetingQueryTests {
 
   @Test
   public void noConflicts() {
-    final Calendar calendar = calendar();
+    final Calendar calendar = new Calendar();
 
     final MeetingRequest request =
         request(
+            calendar,
             restrictions(restriction(0, 1000), restriction(1500, 2000)),
             duration(100),
             attendees(personA, personB));
@@ -173,8 +174,8 @@ public final class FindMeetingQueryTests {
   }
 
   private static MeetingRequest request(
-      TimeRange[] restrictions, long duration, Person[] attendees) {
-    return new MeetingRequest(restrictions, duration, attendees);
+      Calendar calendar, TimeRange[] restrictions, long duration, Person[] attendees) {
+    return new MeetingRequest(calendar, restrictions, duration, attendees);
   }
 
   private static TimeRange option(long start, long end) {
@@ -197,20 +198,7 @@ public final class FindMeetingQueryTests {
     return attendees;
   }
 
-  private static Event event(String title, long start, long end, Person... attendees) {
-    return new Event(title, new TimeRange(start, end), attendees);
-  }
-
-  private static Calendar calendar(Event... events) {
-    return new Calendar() {
-      @Override
-      public void getEventsBetween(TimeRange during, Collection<Event> out) {
-        for (final Event event : events) {
-          if (during.overlaps(event.when)) {
-            out.add(event);
-          }
-        }
-      }
-    };
+  private static CalendarEvent event(String title, long start, long end, Person... attendees) {
+    return new CalendarEvent(title, new TimeRange(start, end), attendees);
   }
 }
