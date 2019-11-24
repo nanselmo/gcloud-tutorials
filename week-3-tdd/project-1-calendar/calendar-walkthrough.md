@@ -39,7 +39,32 @@ mvn test
 
 When the tests pass, you can be confident that your code works!
 
+## Pull Request
+
+TODO: instructions for creating a pull request
+
 ## Web Application
 
-TODO
+The code you wrote can be used in many contexts: from tests, from a desktop Java application, from server-side Java, etc.
 
+This project contains a bare-bones web application that uses HTML, JavaScript, and a servlet to allow users to interact with the code you just wrote. This code is already written! You can imagine you worked on a team where you were responsible for the algorithm, and somebody else was responsible for the web application that calls your algorithm.
+
+To run the web application, run a server:
+
+```bash
+mvn appengine:devserver
+```
+
+Then open the web preview to view a webpage that shows a user interface that provides access to the algorithm you wrote!
+
+## Finishing Up
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+You've now seen unit testing, and you've used data structures to write an algorithm.
+
+If you have time left over this week and you're looking for a challenge, consider improving your algorithm or sprucing up the web application. Some things to consider:
+
+- Where should invalid data be handled?
+- What's the algorithmic complexit of your algorithm? How much memory does it use? Can you improve it?
+- What tests can you add?
