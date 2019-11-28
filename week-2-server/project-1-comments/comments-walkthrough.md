@@ -33,7 +33,7 @@ A servlet is a Java class with functions that run when a client requests a parti
 
 These functions run automatically, similar to how the `main()` function runs when you execute a Java program.
 
-To see an example, open up the `src/main/java/io/happycoding/servlets/CommentsServlet.java` file. This file contains a few interesting lines:
+To see an example, open up the `src/main/java/com/google/codeu/servlets/CommentsServlet.java` file. This file contains a few interesting lines:
 
 - `@WebServlet("/comments")` is an [annotation](https://en.wikipedia.org/wiki/Java_annotation) that tells our server which URL this servlet maps to. When a client requests the `/comments` URL, this servlet is triggered.
 - The `doGet()` function runs whenever a client sends a `GET` request to the servlet's URL. (Your browser sends a `GET` request whenever you visit a URL.)
